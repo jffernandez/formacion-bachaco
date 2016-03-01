@@ -1,4 +1,4 @@
-:banner: banners/OdooExperience.jpg
+:banner: banners/software_libre_pais_potencia.jpg
 :types: api
 
 
