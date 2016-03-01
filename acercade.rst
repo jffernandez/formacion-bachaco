@@ -14,15 +14,8 @@ conocimientos sobre Odoo.
   :align: center
   :alt: Comunidad de Desarrollo del ERP Nacional - Bachaco-VE
 
+
   Comunidad de Desarrollo del ERP Nacional - Bachaco-VE
-
-
-.. figure:: _static/logos/inces.jpg
-  :align: center
-  :alt: Instituto Nacional de Capacitación y Educación Socialista - INCES
-
-  Instituto Nacional de Capacitación y Educación Socialista - INCES
-
 
 .. figure:: _static/logos/odoo.png
   :align: center
