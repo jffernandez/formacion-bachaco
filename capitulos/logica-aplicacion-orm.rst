@@ -240,7 +240,7 @@ Cuando esta trabajando en el código Python, es necesario reiniciar el
 servidor cada vez que el código cambia. Para hacer le la vida más fácil
 a las personas que desarrollan esta disponible la opción
 ``--auto-reload``. Esta realiza un monitoreo del código fuente y lo
-recarga autmáticamente si es detectado algún cambio. Aquí se muestra un
+recarga automáticamente si es detectado algún cambio. Aquí se muestra un
 ejemplo de su uso:
 
 .. code-block:: console
@@ -280,7 +280,7 @@ ejecutada. Este diccionario usa los mismos atributos que se usan para
 definir las acciones de ventana en el XML del módulo.
 
 Usaremos una función de ayuda para el diccionario de la acción de
-ventana para re abrir la ventana del asistente, así podrá ser re usada
+ventana para re-abrir la ventana del asistente, así podrá ser re-usada
 en varios botones, como se muestra a continuación:
 
 .. code-block:: python
@@ -329,11 +329,11 @@ funcionaría como es requerido.
 Usualmente nuestro código del servidor se ejecuta dentro de un método
 del modelo, como es el caso de ``do_mass_update()`` en el código
 precedente. En este contexto, "self" representa el conjunto de registro
-desde los cuales se actuá.
+desde los cuales se actúa.
 
 Las instancias de las clases del modelo son en realidad un conjunto de
 registros. Para las acciones ejecutadas desde las vistas, este será
-unicamente el registro seleccionado actualmente. Si es una vista de
+únicamente el registro seleccionado actualmente. Si es una vista de
 formulario, usualmente es un único registro, pero en las vistas de
 árbol, pueden ser varios registros.
 
@@ -452,7 +452,7 @@ Con "self" solo podemos acceder a al conjunto de registros del método.
 Pero la referencia a ``self.env`` nos permite acceder a cualquier otro
 modelo.
 
-Por ejmplo, ``self.env['res.partner']`` devuelve una referencia al
+Por ejemplo, ``self.env['res.partner']`` devuelve una referencia al
 modelo Partners (la cual es un conjunto de registros vacío). Por lo
 tanto podemos usar ``search()`` y ``browse()`` para generar el conjunto
 de registros.
@@ -491,7 +491,7 @@ Algunos ejemplos de su uso se muestran a continuación:
 Los conjuntos de registros implementan el patrón de registro activo.
 Esto significa que podemos asignas les valores, y esos valores se harán
 permanentes en la base de datos. Esta es una forma intuitiva y
-conveniente de manupulación de datos, como se muestra a continuación:
+conveniente de manipulación de datos, como se muestra a continuación:
 
 .. code-block:: python
 
@@ -565,7 +565,7 @@ la base de datos, como se muestra a continuación:
 -  ``self.env.cr.commit()``: Este escribe las operaciones de escritura
    cargadas de la transacción.
 -  ``self.env.savepoint()``: Este fija un punto seguro en la transacción
-   para poder revirtirla.
+   para poder revertirla.
 -  ``self.env.rollback()``: Este cancela las operaciones de escritura
    de la transacción desde el último punto seguro o todo si no fue
    creado un punto seguro.
@@ -702,7 +702,7 @@ continuación:
 
 -  ``rs[0]`` y ``rs[-1]``, retornan el primer elemento y el último
    elemento.
--  ``rs[1:]``, devulve una copia del conjunto sin el primer elemento.
+-  ``rs[1:]``, devuelve una copia del conjunto sin el primer elemento.
    Este produce los mismos registros que ``rs – rs[0]`` pero preservando
    el orden.
 
@@ -749,7 +749,7 @@ También estas disponibles estas operaciones:
    elementos del conjunto.
 -  ``recordset.ensure_one()``: Verifica si es un único registro
    (singleton); si no lo es, arroja una excepción ValueError.
--  ``recordset.exists()``: Devuelve una copia solmente con los registros
+-  ``recordset.exists()``: Devuelve una copia solamente con los registros
    que todavía existen.
 -  ``recordset.filtered(func)``: Devuelve un conjunto de registros
    filtrado.
@@ -797,7 +797,7 @@ Para esto pueden usarse los siguientes métodos:
    ejecutar diferentes sentencias pasando por encima de las reglas de
    seguridad.
 -  ``env.with_context(dictionary)``: Reemplaza el contexto con uno
-   nnuevo.
+   nuevo.
 -  ``env.with_context(key=value,...)``: Fija los valores para las claves
    en el contexto actual.
 
@@ -825,7 +825,7 @@ continuación:
 
 -  ``search_read([domain], [fields], offset=0, limit=None, order=None)``:
    Ejecuta una operación de búsqueda seguida por una lectura a la lista
-   del registro resultante. Esta previsto que sea usadopor los cliente
+   del registro resultante. Esta previsto que sea usado por los cliente
    RPC y ahorrarles el trabajo extra cuando se hace primero una búsqueda
    y luego una lectura.
 
@@ -867,7 +867,7 @@ representar la interfaz y ejecutar la interacción básica:
    referencia mientras se escribe en un campo para seleccionar un
    producto.
 
--  ``name_create(name)``: Crea un registro nuevo unicamente con el
+-  ``name_create(name)``: Crea un registro nuevo únicamente con el
    nombre de título. Se usa en el UI para la característica de creación
    rápida, donde puede crear rápidamente un registro relacionado con
    solo proporcionar el nombre. Puede ser ampliado para proveer
@@ -1048,9 +1048,9 @@ Esta línea de entrada funciona como una línea de comandos de Python, donde pue
 - u(up): Permite moverse hacia arriba de la pila de ejecución.
 - d (down): Permite moverse hacia abajo de la pila de ejecución.
 
-El servidor Odoo también soporta la opción `--debug`. Si se usa, el servidor entrara en un modo *post mortem* cuando encuentre una excepción, en la línea donde se encuentre el error. Es una consola pdb y nos permite inspeccionar el estado del programa en el momento en que es encontrado el error.
+El servidor Odoo también soporta la opción ``--debug``. Si se usa, el servidor entrara en un modo *post mortem* cuando encuentre una excepción, en la línea donde se encuentre el error. Es una consola pdb y nos permite inspeccionar el estado del programa en el momento en que es encontrado el error.
 
-Existen alternativas al depurador de Python. Pudb provee los mismos comandos que pdb y funciona en terminales de solo texto, pero usa una visualización gráfica más amigable, haciendo que la información útil sea más legible como las variables del contexto actual y sus valores.
+Existen alternativas al depurador de Python. Puede provee los mismos comandos que pdb y funciona en terminales de solo texto, pero usa una visualización gráfica más amigable, haciendo que la información útil sea más legible como las variables del contexto actual y sus valores.
 
 .. figure:: images/185_1.jpg
   :align: center
