@@ -1,6 +1,9 @@
-:banner: banners/index.jpg
+==================================
+Fundamentos de desarrollo con Odoo
+==================================
 
-============
+Traducción no oficial del libro **Odoo Development Essentials**.
+
 Introducción
 ============
 
