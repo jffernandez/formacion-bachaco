@@ -1,4 +1,4 @@
-:banner: banners/m_2.jpg
+:banner: banners/m_1.jpg
 
 ========
 Prefacio
