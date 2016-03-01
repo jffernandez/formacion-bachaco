@@ -29,7 +29,7 @@ Comenzaremos por crear un módulo nuevo para esta característica:
 XML, por lo tanto la descripción ``todo_wizard/__openerp__.py`` será
 como se muestra en el siguiente código:
 
-::
+.. code-block:: python
 
     {
         'name': 'To-do Tasks Management Assistant', 
@@ -41,9 +41,9 @@ como se muestra en el siguiente código:
 El código para cargar nuestro código en el archivo
 ``todo_wizard/__init__.py``, es solo una línea:
 
-::
+.. code-block:: python
 
-    from . Import todo_wizard_model 
+    from . import todo_wizard_model
 
 Luego, necesitamos describir el modelo de datos que soporta nuestro
 asistente.
@@ -68,7 +68,7 @@ El archivo ``todo_wizard/todo_wizard_model.py`` definirá los tres campos
 que necesitamos: la lista de tareas que serán actualizadas, la persona
 responsable, y la fecha límite, como se muestra aquí:
 
-::
+.. code-block:: python
 
     # -*- coding: utf-8 -*- 
     from openerp import models, fields, api 
@@ -92,7 +92,7 @@ se inicia con dos líneas justo después del TodoWizard, usando la
 librería estándar de registro de Python. Para escribir mensajes en el
 registro podemos usar:
 
-::
+.. code-block:: python
 
     _logger.debug('A DEBUG message') 
     _logger.info('An INFO message') 
@@ -112,7 +112,7 @@ formularios regulares, excepto por dos elementos específicos:
 
 Este es el contenido del archivo ``todo_wizard/todo_wizard_view.xml``:
 
-::
+.. code-block:: XML
 
     <openerp>
         <data>
@@ -141,7 +141,7 @@ Este es el contenido del archivo ``todo_wizard/todo_wizard_view.xml``:
                     </form>
                 </field>
             </record> 
-            <!-- More button Action → 
+            <!-- More button Action -->
             <act_window id="todo_app.action_todo_wizard" name="To-Do Tasks Wizard" src_model="todo.task" res_model="todo.wizard" view_mode="form" target="new" multi="True"/>
         </data>
     </openerp> 
@@ -171,7 +171,7 @@ el botón "Mass Update". El método que es llamado por el botón es
 ``todo_wizard/todo_wizard_model.py``, como se muestra en el siguiente
 código.
 
-::
+.. code-block:: python
 
     @api.multi def do_mass_update(self): 
         self.ensure_one() 
@@ -214,7 +214,7 @@ mensaje de error. Esto se realiza elevando una excepción. Odoo
 proporciona algunas clases de excepción adicionales a aquellas
 disponibles en Python. Estos son ejemplos de las más usadas:
 
-::
+.. code-block:: python
 
     from openerp import exceptions 
 
@@ -226,7 +226,7 @@ parecer menos severo que un ValidationError. Aunque no es la mejor
 interfaz, nos aprovechamos de esto para mostrar un mensaje en el botón
 "Count":
 
-::
+.. code-block:: python
 
     @api.multi def do_count_tasks(self):
         Task  = self.env['todo.task']
@@ -243,7 +243,7 @@ a las personas que desarrollan esta disponible la opción
 recarga autmáticamente si es detectado algún cambio. Aquí se muestra un
 ejemplo de su uso:
 
-::
+.. code-block:: console
 
     $ ./odoo.py -d v8dev --auto-reload
 
@@ -252,7 +252,7 @@ Debian/Ubuntu, como se recomendó en el Capítulo 1, entonces debe
 funcionar. Se requiere el paquete Python pyinotify, y debe ser instalado
 a través de ``apt-get`` o pip, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo apt-get install python-pyinotify # using OS packages 
     $ pip install pyinotify                 # using pip, possibly in a virtualenv  
@@ -283,7 +283,7 @@ Usaremos una función de ayuda para el diccionario de la acción de
 ventana para re abrir la ventana del asistente, así podrá ser re usada
 en varios botones, como se muestra a continuación:
 
-::
+.. code-block:: python
 
     @api.multi def do_reopen_form(self): 
         self.ensure_one() 
@@ -304,7 +304,7 @@ asistente para pedir al usuario o la usuaria el ingreso de más datos.
 Ahora que el botón "Get All" puede realizar su trabajo y mantener al
 usuario o la usuaria trabajando en el mismo asistente:
 
-::
+.. code-block:: python
 
     @api.multi def do_populate_tasks(self): 
         self.ensure_one()
@@ -315,7 +315,7 @@ usuario o la usuaria trabajando en el mismo asistente:
 
 Aquí podemos ver como obtener una referencia a un modelo diferente, el
 cual en este caso es
-``todo.task, para ejecutar acciones en el. Los valores del formulario del asistente son almacenados en un modelo transitorio y pueden ser escritos y leídos como en los modelos regulares. También podemos ver que el método fija el valor de``\ task\_ids\`
+``todo.task``, para ejecutar acciones en el. Los valores del formulario del asistente son almacenados en un modelo transitorio y pueden ser escritos y leídos como en los modelos regulares. También podemos ver que el método fija el valor de``\task\_ids\``
 con la lista de todas las tareas activas.
 
 Note que como no hay garantía que "self" sea un único registro, lo
@@ -354,7 +354,7 @@ o puede usar los siguientes comandos para obtener el código desde GitHub
 y hacer que el módulo este disponibles es su directorio de add-ons
 personalizados:
 
-::
+.. code-block:: console
 
     $ cd ~/odoo-dev 
     $ git clone https://github.com/OCA/server-tools.git -b 8.0
@@ -364,7 +364,7 @@ personalizados:
 Para usar esto, ejecute ``odoo.py`` desde la línea de comandos con la
 base de datos a usar, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ ./odoo.py shell -d v8dev  
 
@@ -373,7 +373,7 @@ con un el símbolo de entrada de Python ``>>>``. Aquí, "self" representa
 el registro para el usuario administrador como se muestra a
 continuación:
 
-::
+.. code-block:: python
 
     >>> self res.users(1,)
     >>> self.name u'Administrator' 
@@ -406,7 +406,7 @@ A diferencia de los conjuntos de registros multi elementos, los
 "singletons" pueden acceder a sus campos usando la notación de punto,
 como se muestra a continuación:
 
-::
+.. code-block:: python
 
     >>> print self.name Administrator
     >>> for rec in self: print rec.name Administrator  
@@ -428,7 +428,7 @@ conjunto de registros vacío. En ambos casos, podemos acceder a sus
 valores directamente. Como ejemplo, las siguientes instrucciones son
 correctas y seguras:
 
-::
+.. code-block:: python
 
     >>> self.company_id res.company(1,)
     >>> self.company_id.name u'YourCompany'
@@ -441,7 +441,7 @@ un False. Debido a esto, podemos recorrer los registros usando la
 notación de punto sin preocuparnos por los errores de valores vacíos,
 como se muestra a continuación:
 
-::
+.. code-block:: python
 
     >>> self.company_id.country_id res.country()
     >>> self.company_id.country_id.name False  
@@ -481,7 +481,7 @@ en que ya sepamos los Ids de los registros que queremos.
 
 Algunos ejemplos de su uso se muestran a continuación:
 
-::
+.. code-block:: python
 
     >>> self.env['res.partner'].search([('name','like','Ag')]) res.partner(7,51) 
     >>> self.env['res.partner'].browse([7,51]) res.partner(7,51)  
@@ -493,7 +493,7 @@ Esto significa que podemos asignas les valores, y esos valores se harán
 permanentes en la base de datos. Esta es una forma intuitiva y
 conveniente de manupulación de datos, como se muestra a continuación:
 
-::
+.. code-block:: python
 
     >>> admin = self.env['res.users'].browse(1) 
     >>> admin.name = 'Superuser' 
@@ -507,7 +507,7 @@ los campos y devuelve el registro creado. Los valores predeterminados
 con aplicados automáticamente como se espera, como se puede observar
 aquí:
 
-::
+.. code-block:: python
 
     >>> Partner = self.env['res.partner']
     >>> new = Partner.create({'name':'ACME','is_company':   True})
@@ -516,7 +516,7 @@ aquí:
 El método ``unlink()`` borra los registros en el conjunto, como se
 muestra a continuación:
 
-::
+.. code-block:: python
 
     >>> rec = Partner.search([('name','=','ACME')])
     >>> rec.unlink() 
@@ -526,7 +526,7 @@ El método ``write()`` toma un diccionario para mapear los valores de los
 registros. Estos son actualizados en todos los elementos del conjunto y
 no se devuelve nada, como se muestra a continuación:
 
-::
+.. code-block:: python
 
     >>> Partner.write({'comment':'Hello!'})  
 
@@ -542,7 +542,7 @@ existente; toma esto como un argumento opcional y un diccionario con los
 valores que serán escritos en el registro nuevo. Por ejemplo, para crear
 un usuario nuevo copiando lo desde "Demo User":
 
-::
+.. code-block:: python
 
     >>> demo = self.env.ref('base.user_demo') 
     >>> new = demo.copy({'name': 'Daniel', 'login': 'dr', 'email':''}) 
@@ -570,9 +570,9 @@ la base de datos, como se muestra a continuación:
    de la transacción desde el último punto seguro o todo si no fue
    creado un punto seguro.
 
--  *Tip*
-      En una sesión de la terminal, la manipulación de los datos no se
-      hará efectiva hasta no usar ``self.env.cr.commit()``.
+   .. tip::
+       En una sesión de la terminal, la manipulación de los datos no se
+       hará efectiva hasta no usar ``self.env.cr.commit()``.
 
 Con el método del cursor ``execute()``, podemos ejecutar SQL
 directamente en la base de datos. Este toma una cadena de texto con la
@@ -585,7 +585,7 @@ función ``fetchall()`` devuelve todas las filas como una lista de tuplas
 y ``dictfetchall()`` las devuelve como una lista de diccionarios, como
 se muestra en el siguiente ejemplo:
 
-::
+.. code-block:: python
 
     >>> self.env.cr.execute("SELECT id, login   FROM res_users WHERE login=%s   OR id=%s",('demo',1)) 
     >>> self.env.cr.fetchall()
@@ -598,11 +598,10 @@ datos reales de la base de datos. Por lo tanto, cuando se use DML, la
 memoria (cache) debe ser limpiada después de su uso, a través de
 ``self.env.invalidate_all()``.
 
-*Nota* y *Precaución!*
-
-  Ejecutar SQL directamente en la base de datos puede tener como
-  consecuencia la generación de inconsistencias en los datos. Debe usarse
-  solo cuando tenga la seguridad de lo que esta haciendo.
+.. warning::
+    Ejecutar SQL directamente en la base de datos puede tener como
+    consecuencia la generación de inconsistencias en los datos. Debe usarse
+    solo cuando tenga la seguridad de lo que esta haciendo.
 
 **Trabajar con hora y fecha**
 
@@ -612,7 +611,7 @@ Además los valores de fecha y hora de almacenan en la base de datos en
 hora UTC. Los formatos usados para representar las cadenas son definidos
 por:
 
-::
+.. code-block:: python
 
     openerp.tools.misc.DEFAULT_SERVER_DATE_FORMAT 
     openerp.tools.misc.DEFAULT_SERVER_DATETIME_FORMAT 
@@ -623,7 +622,7 @@ respectivamente.
 Para ayudar a manejar las fechas, ``fields.Date`` y ``fields.Datetime``
 proveen algunas funciones. Por ejemplo:
 
-::
+.. code-block:: python
 
     >>> from openerp import fields
     >>> fields.Datetime.now()
@@ -760,7 +759,7 @@ También estas disponibles estas operaciones:
 
 A continuación se muestran algunos ejemplos del uso de estas funciones:
 
-::
+.. code-block:: python
 
     >>> rs0 = self.env['res.partner'].search([])
     >>> len(rs0)                #how many records? 
@@ -805,7 +804,7 @@ Para esto pueden usarse los siguientes métodos:
 La función ``env.ref()`` toma una cadena con un ID externo y devuelve un
 registro, como se muestra a continuación.
 
-::
+.. code-block:: python
 
     >>> self.env.ref('base.user_root')
     res.users(1,)  
@@ -886,11 +885,13 @@ representar la interfaz y ejecutar la interacción básica:
 -  ``fields_view_get()``: Es usado por el cliente web para devolver la
    estructura de la vista de la UI. Puede darse el ID de la vista como
    un argumento o el tipo de vista que queremos usando
-   ``view_type='form'``. Vea el siguiente ejemplo:
+   ``view_type='form'``.
 
-   ::
+   Vea el siguiente ejemplo:
 
-       rset.fields_view_get(view_type='tree'). 
+   .. code-block:: python
+
+       rset.fields_view_get(view_type='tree')
 
 **Sobre escribir los métodos predeterminados**
 
@@ -907,7 +908,7 @@ antes o después que las operaciones principales.
 Usando el modelo TodoTask como ejemplo, podemos crear un ``create()``
 personalizado, el cual puede ser de la siguiente forma:
 
-::
+.. code-block:: python
 
     @api.model def create(self, vals):
         # Code before create
@@ -919,7 +920,7 @@ personalizado, el cual puede ser de la siguiente forma:
 
 Un método ``write()`` personalizado seguiría esta estructura:
 
-::
+.. code-block:: python
 
     @api.multi def write(self, vals): 
         # Code before write 
@@ -1009,7 +1010,7 @@ disponible, sin impedir al usuario o usuaria continuar. Esto es
 realizado a través de un método "return" con un diccionario que describa
 el siguiente mensaje:
 
-::
+.. code-block:: python
 
     return {
         'warning': {
@@ -1017,58 +1018,60 @@ el siguiente mensaje:
             'message': 'The warning text'
         }
     } 
-     ```
 
+**Depuración**
 
-    **Depuración**  
+Sabemos que una buena parte del trabajo de desarrollo es la depuración del código. Para hacer esto frecuentemente hacemos uso del editor de código que puede fijar pontos de quiebre y ejecutar nuestro programa paso a paso. Hacer esto con Odoo es posible pero tiene sus dificultades.
 
-    Sabemos que una buena parte del trabajo de desarrollo es la depuración del código. Para hacer esto frecuentemente hacemos uso del editor de código que puede fijar pontos de quiebre y ejecutar nuestro programa paso a paso. Hacer esto con Odoo es posible pero tiene sus dificultades.
+Si esta usando Microsoft Windows como su estación de trabajo, configurar un entorno capaz de ejecutar en código de Odoo desde la fuente no es una tarea trivial. Además el hecho que Odoo sea un servidor que espera llamadas de un cliente para actuar, lo hace diferente a la depuración de programas del lado del cliente.
 
-    Si esta usando Microsoft Windows como su estación de trabajo, configurar un entorno capaz de ejecutar en código de Odoo desde la fuente no es una tarea trivial. Además el hecho que Odoo sea un servidor que espera llamadas de un cliente para actuar, lo hace diferente a la depuración de programas del lado del cliente.
+Mientras que esto puede ser realizado con Odoo, puede decirse que no es la forma más pragmática de resolver el asunto. Haremos una introducción sobre algunas estrategias básicas para la depuración, las cuales pueden ser tan efectivas como algunos IDEs sofisticados, con un poco de práctica.
 
-    Mientras que esto puede ser realizado con Odoo, puede decirse que no es la forma más pragmática de resolver el asunto. Haremos una introducción sobre algunas estrategias básicas para la depuración, las cuales pueden ser tan efectivas como algunos IDEs sofisticados, con un poco de práctica.
+La herramienta integrada para la depuración de Python, pdb, puede hacer un trabajo decente de depuración. Podemos fijar un punto de quiebre insertando la siguiente línea en el lugar deseado:
 
-    La herramienta integrada para la depuración de Python, pdb, puede hacer un trabajo decente de depuración. Podemos fijar un punto de quiebre insertando la siguiente línea en el lugar deseado:
+.. code-block:: python
 
-::
+    import pdb; pdb.set\_trace()
 
-  import pdb; pdb.set\_trace()
+Ahora reinicie el servidor para que se cargue la modificación del código. Tan pronto como la ejecución del código alcance la línea, una (pdb) linea de entrada de Python será mostrada en la ventana de la terminal en la cual el servidor se esta ejecutando, esperando por el ingreso de datos.
 
-    Ahora reinicie el servidor para que se cargue la modificación del código. Tan pronto como la ejecución del código alcance la línea, una (pdb) linea de entrada de Python será mostrada en la ventana de la terminal en la cual el servidor se esta ejecutando, esperando por el ingreso de datos.
+Esta línea de entrada funciona como una línea de comandos de Python, donde puede ejecutar cualquier comando o expresión en el actual contexto de ejecución. Esto significa que las variables actuales pueden ser inspeccionadas e incluso modificadas. Estos son los comandos disponibles más importantes:
 
-    Esta línea de entrada funciona como una línea de comandos de Python, donde puede ejecutar cualquier comando o expresión en el actual contexto de ejecución. Esto significa que las variables actuales pueden ser inspeccionadas e incluso modificadas. Estos son los comandos disponibles más importantes:
+- h: Es usado para mostrar un resumen de la ayuda del comando pdb.
+- p: Es usado para evaluar e imprimir una expresión.
+- pp: Este es para una impresión mas legible, la cual es útil para los diccionarios y listas muy largos.
+- l: Lista el código alrededor de la instrucción que será ejecutada a continuación.
+- n (next): Salta hasta la próxima instrucción.
+- s (step): Salta hasta la instrucción actual.
+- c (continue): Continua la ejecución normalmente.
+- u (up): 
+- u(up): Permite moverse hacia arriba de la pila de ejecución.
+- d (down): Permite moverse hacia abajo de la pila de ejecución.
 
-    - h: Es usado para mostrar un resumen de la ayuda del comando pdb.
-    - p: Es usado para evaluar e imprimir una expresión.
-    - pp: Este es para una impresión mas legible, la cual es útil para los diccionarios y listas muy largos.
-    - l: Lista el código alrededor de la instrucción que será ejecutada a continuación.
-    - n (next): Salta hasta la próxima instrucción.
-    - s (step): Salta hasta la instrucción actual.
-    - c (continue): Continua la ejecución normalmente.
-    - u (up): 
-    - u(up): Permite moverse hacia arriba de la pila de ejecución.
-    - d (down): Permite moverse hacia abajo de la pila de ejecución.
+El servidor Odoo también soporta la opción `--debug`. Si se usa, el servidor entrara en un modo *post mortem* cuando encuentre una excepción, en la línea donde se encuentre el error. Es una consola pdb y nos permite inspeccionar el estado del programa en el momento en que es encontrado el error.
 
-    El servidor Odoo también soporta la opción `--debug`. Si se usa, el servidor entrara en un modo *post mortem* cuando encuentre una excepción, en la línea donde se encuentre el error. Es una consola pdb y nos permite inspeccionar el estado del programa en el momento en que es encontrado el error.
+Existen alternativas al depurador de Python. Pudb provee los mismos comandos que pdb y funciona en terminales de solo texto, pero usa una visualización gráfica más amigable, haciendo que la información útil sea más legible como las variables del contexto actual y sus valores.
 
-    Existen alternativas al depurador de Python. Pudb provee los mismos comandos que pdb y funciona en terminales de solo texto, pero usa una visualización gráfica más amigable, haciendo que la información útil sea más legible como las variables del contexto actual y sus valores.
-     
-    ![275_1](/images/275_1.jpg)
+.. figure:: images/185_1.jpg
+  :align: center
+  :alt: 275_1.jpg
 
-    Puede ser instalado a través del sistema de paquetes o por pip, como se muestra a continuación: ::
+  275_1.jpg
 
-::
+Puede ser instalado a través del sistema de paquetes o por pip, como se muestra a continuación:
 
-  $ sudo apt-get install python-pudb # using OS packages
-  $ pip install pudb # using pip, possibly in a virtualenv
+.. code-block:: console
+
+    $ sudo apt-get install python-pudb # using OS packages
+    $ pip install pudb # using pip, possibly in a virtualenv
 
 Funciona como pdb; solo necesita usar pudb en vez de pdb en el código.
 
 Otra opción es el depurador Iron Python, ipdb, el cual puede ser instalado:
 
-::
+.. code-block:: console
 
-  $ pip install ipdb
+    $ pip install ipdb
 
 A veces solo necesitamos inspeccionar los valores de algunas
 variables o verificar si algunos bloques de código son ejecutados. Una
