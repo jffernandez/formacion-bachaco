@@ -252,9 +252,9 @@ otros modelos. Esto es hecho usando las capacidades de herencia de Odoo.
 
 .. figure:: images/185_1.jpg
   :align: center
-  :alt: 185_1.jpg
+  :alt: Grafico 5.1 - Vista de la estructura de base de datos del modelo todo.task
 
-  185_1.jpg
+  Grafico 5.1 - Vista de la estructura de base de datos del modelo todo.task
 
 
 Inspeccionar modelos existentes
