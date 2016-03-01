@@ -1,4 +1,4 @@
-:banner: banners/odoo_guideline.jpg
+:banner: banners/getting_started.jpg
 
 ======================
 Capítulo 1 - Iniciando
