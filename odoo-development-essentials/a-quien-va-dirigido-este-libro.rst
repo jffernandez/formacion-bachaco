@@ -1,4 +1,4 @@
-:banner: banners/translate.jpg
+:banner: banners/odoo_experience.jpg
 
 ================================
 ¿A quién va dirigido este libro?
