@@ -162,9 +162,9 @@ Así es como lucirá nuestro asistente:
 
 .. figure:: images/251_1.jpg
   :align: center
-  :alt: Grafico 7.1 - Vista ToDo Tasks Wizard
+  :alt: Gráfico 7.1 - Vista ToDo Tasks Wizard
 
-  Grafico 7.1 - Vista ToDo Tasks Wizard
+  Gráfico 7.1 - Vista ToDo Tasks Wizard
 
 Lógica de negocio del asistente
 -------------------------------
@@ -1075,9 +1075,9 @@ Existen alternativas al depurador de Python. Puede provee los mismos comandos qu
 
 .. figure:: images/185_1.jpg
   :align: center
-  :alt: Grafico 7.2 - Vista del modelo todo.task
+  :alt: Gráfico 7.2 - Vista del modelo todo.task
 
-  Grafico 7.2 - Vista del modelo todo.task
+  Gráfico 7.2 - Vista del modelo todo.task
 
 Puede ser instalado a través del sistema de paquetes o por pip, como se muestra a continuación:
 

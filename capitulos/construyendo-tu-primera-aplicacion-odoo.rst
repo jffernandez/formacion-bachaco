@@ -259,9 +259,9 @@ búsqueda y debe ver nuestro módulo nuevo, listo para ser instalado.
 
 .. figure:: images/90_1.jpg
   :align: center
-  :alt: Grafico 2.1 - Instalar nuevo módulo 'todo_app'
+  :alt: Gráfico 2.1 - Instalar nuevo módulo 'todo_app'
 
-  Grafico 2.1 - Instalar nuevo módulo 'todo_app'
+  Gráfico 2.1 - Instalar nuevo módulo 'todo_app'
 
 Haga clic en el botón **Instalar** y listo!
 
@@ -392,9 +392,9 @@ definición:
 
 .. figure:: images/95_1.jpg
   :align: center
-  :alt: Grafico 2.2 - Vista de Estructura de la Base de Datos de módulo 'todo_app'
+  :alt: Gráfico 2.2 - Vista de Estructura de la Base de Datos de módulo 'todo_app'
 
-  Grafico 2.2 - Vista de Estructura de la Base de Datos de módulo 'todo_app'
+  Gráfico 2.2 - Vista de Estructura de la Base de Datos de módulo 'todo_app'
 
 Si no hubo ningún problema, esto nos confirmará que el modelo y nuestros
 campos fueron creados. Si hizo algunos cambios y no son reflejados,
@@ -477,9 +477,9 @@ opción disponible.
 
 .. figure:: images/98_1.jpg
   :align: center
-  :alt: Grafico 2.3 - Agregar módulo 'todo_app' al menú de Odoo
+  :alt: Gráfico 2.3 - Agregar módulo 'todo_app' al menú de Odoo
 
-  Grafico 2.3 - Agregar módulo 'todo_app' al menú de Odoo
+  Gráfico 2.3 - Agregar módulo 'todo_app' al menú de Odoo
 
 Si hace clic en ella se abrirá un formulario generado automáticamente
 para nuestro modelo, permitiendo agregar y modificar los registros.
@@ -818,9 +818,9 @@ de acceso a un modelo, use el cliente web y diríjase a: **Configuración
 
 .. figure:: images/112_1.jpg
   :align: center
-  :alt: Grafico 2.4 - Lista controles de acceso de Odoo
+  :alt: Gráfico 2.4 - Lista controles de acceso de Odoo
 
-  Grafico 2.4 - Lista controles de acceso de Odoo
+  Gráfico 2.4 - Lista controles de acceso de Odoo
 
 Aquí podemos ver la ACL para el modelo ``mail.mail``. Este indica, por
 grupo, las acciones permitidas en los registros.

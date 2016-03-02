@@ -38,9 +38,9 @@ nuevas. Esto es lo que esperamos lograr al final de este capítulo:
 
 .. figure:: images/122_1.jpg
   :align: center
-  :alt: Grafico 3.1 - Nuevo módulo para la aplicación To-Do
+  :alt: Gráfico 3.1 - Nuevo módulo para la aplicación To-Do
 
-  Grafico 3.1 - Nuevo módulo para la aplicación To-Do
+  Gráfico 3.1 - Nuevo módulo para la aplicación To-Do
 
 Camino a seguir para las características colaborativas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

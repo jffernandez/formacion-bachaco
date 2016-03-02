@@ -205,9 +205,9 @@ una nueva base de datos, como se muestra en la siguiente imagen:
 
 .. figure:: images/52_1.jpg
   :align: center
-  :alt: Grafico 1.1 - Vista Crear una Nueva Base de datos
+  :alt: Gráfico 1.1 - Vista Crear una Nueva Base de datos
 
-  Grafico 1.1 - Vista Crear una Nueva Base de datos
+  Gráfico 1.1 - Vista Crear una Nueva Base de datos
 
 Pero aprenderá como inicializar bases de datos nuevas desde la línea de
 comando, ahora presione *Ctrl* + *C* para detener el servidor y volver a
@@ -560,9 +560,9 @@ como habilitarlas.
 
 .. figure:: images/70_1.jpg
   :align: center
-  :alt: Grafico 1.2 - Características Técnicas de Odoo
+  :alt: Gráfico 1.2 - Características Técnicas de Odoo
 
-  Grafico 1.2 - Características Técnicas de Odoo
+  Gráfico 1.2 - Características Técnicas de Odoo
 
 Activar las Características Técnicas
 ------------------------------------
@@ -604,9 +604,9 @@ en la esquina superior derecha.
 
 .. figure:: images/71_1.jpg
   :align: center
-  :alt: Grafico 1.3 - Activar Modo de Desarrollo en Odoo
+  :alt: Gráfico 1.3 - Activar Modo de Desarrollo en Odoo
 
-  Grafico 1.3 - Activar Modo de Desarrollo en Odoo
+  Gráfico 1.3 - Activar Modo de Desarrollo en Odoo
 
 Luego de esto, verá una caja de selección **Depurar Vista** en la parte
 superior izquierda del área actual del formulario.
@@ -688,9 +688,9 @@ paths:** (...). Confirmando que la instancia contiene nuestro directorio
 
 .. figure:: images/76_1.jpg
   :align: center
-  :alt: Grafico 1.4 - Confirmar que la instancia Odoo reconoce el directorio 'department'
+  :alt: Gráfico 1.4 - Confirmar que la instancia Odoo reconoce el directorio 'department'
 
-  Grafico 1.4 - Confirmar que la instancia Odoo reconoce el directorio 'department'
+  Gráfico 1.4 - Confirmar que la instancia Odoo reconoce el directorio 'department'
 
 Actualizar la lista de módulos
 ------------------------------
@@ -710,9 +710,9 @@ nuevos módulos disponibles.
 
 .. figure:: images/76_1.jpg
   :align: center
-  :alt: Grafico 1.5 - Actualizar Lista de Módulos
+  :alt: Gráfico 1.5 - Actualizar Lista de Módulos
 
-  Grafico 1.5 - Actualizar Lista de Módulos
+  Gráfico 1.5 - Actualizar Lista de Módulos
 
 Resumen
 =======
