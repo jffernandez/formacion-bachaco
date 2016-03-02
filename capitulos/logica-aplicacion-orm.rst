@@ -14,7 +14,8 @@ asistentes usando la API de programación de Odoo, lo que nos permitirá
 proveer una interacción más dinámica con el usuario y la usuaria con
 estos programas.
 
-**Asistente de tareas por hacer**
+Asistente de tareas por hacer
+-----------------------------
 
 Con los asistentes, podemos pedir a los usuarios y las usuarias que
 ingresen información para ser usada en algunos procesos. Suponga que los
@@ -48,7 +49,8 @@ El código para cargar nuestro código en el archivo
 Luego, necesitamos describir el modelo de datos que soporta nuestro
 asistente.
 
-**Modelo del Asistente**
+Modelo del asistente
+--------------------
 
 Un asistente muestra una vista de formulario al usuario o la usuario,
 usualmente dentro de una ventana de dialogo, con algunos campos para ser
@@ -101,7 +103,8 @@ registro podemos usar:
 
 Veremos más ejemplos de su uso en este capítulo.
 
-**Formularios de asistente**
+Formularios de asistente
+------------------------
 
 La vista de formularios de asistente luce exactamente como los
 formularios regulares, excepto por dos elementos específicos:
@@ -163,7 +166,8 @@ Así es como lucirá nuestro asistente:
 
   251_1.jpg
 
-**Lógica de negocio del asistente**
+Lógica de negocio del asistente
+-------------------------------
 
 Luego necesitamos implementar las acciones ejecutadas al hacer clic en
 el botón "Mass Update". El método que es llamado por el botón es
@@ -207,7 +211,8 @@ Esto es más eficiente que escribir repetidamente en cada registro dentro
 de un bucle. Ahora trabajaremos en la lógica detrás de los dos botones
 en la parte superior. "Count" y "Get All".
 
-**Elevar excepciones**
+Elevar excepciones
+------------------
 
 Cuando algo no esta bien, queremos interrumpir el programa con algún
 mensaje de error. Esto se realiza elevando una excepción. Odoo
@@ -234,7 +239,8 @@ interfaz, nos aprovechamos de esto para mostrar un mensaje en el botón
 
         raise exceptions.Warning('There are %d active tasks.' % count) 
 
-**Recarga automática de los cambios en el código**
+Recarga automática de los cambios en el código
+----------------------------------------------
 
 Cuando esta trabajando en el código Python, es necesario reiniciar el
 servidor cada vez que el código cambia. Para hacer le la vida más fácil
@@ -257,7 +263,8 @@ a través de ``apt-get`` o pip, como se muestra a continuación:
     $ sudo apt-get install python-pyinotify # using OS packages 
     $ pip install pyinotify                 # using pip, possibly in a virtualenv  
 
-**Acciones en el dialogo del asistente**
+Acciones en el dialogo del asistente
+------------------------------------
 
 Ahora supongamos que queremos tener un botón que selecciona
 automáticamente las todas las tareas por hacer para ahorrar le la tarea
@@ -324,7 +331,8 @@ validamos usando ``self.ensure_one()``. No debemos usar el decorador
 que el cliente web espera recibir un diccionario y no una lista, no
 funcionaría como es requerido.
 
-**Trabajar en el servidor**
+Trabajar en el servidor
+-----------------------
 
 Usualmente nuestro código del servidor se ejecuta dentro de un método
 del modelo, como es el caso de ``do_mass_update()`` en el código
@@ -417,7 +425,8 @@ solo un registro, por lo tanto solo se muestra un nombre. Como puede
 ver, "self" es un "singleton" y se comporta como un registro, pero al
 mismo tiempo es iterable como un conjunto de registros.
 
-**Usar campos de relación**
+Usar campos de relación
+-----------------------
 
 Como ya hemos visto, los modelos pueden tener campos relacionales:
 muchos a uno, uno a muchos, y muchos a muchos. Estos tipos de campos
@@ -446,7 +455,8 @@ como se muestra a continuación:
     >>> self.company_id.country_id res.country()
     >>> self.company_id.country_id.name False  
 
-**Consultar los modelos**
+Consultar los modelos
+---------------------
 
 Con "self" solo podemos acceder a al conjunto de registros del método.
 Pero la referencia a ``self.env`` nos permite acceder a cualquier otro
@@ -486,7 +496,8 @@ Algunos ejemplos de su uso se muestran a continuación:
     >>> self.env['res.partner'].search([('name','like','Ag')]) res.partner(7,51) 
     >>> self.env['res.partner'].browse([7,51]) res.partner(7,51)  
 
-**Escribir en los registros**
+Escribir en los registros
+-------------------------
 
 Los conjuntos de registros implementan el patrón de registro activo.
 Esto significa que podemos asignas les valores, y esos valores se harán
@@ -551,7 +562,9 @@ un usuario nuevo copiando lo desde "Demo User":
 Recuerde que los campos con el atributo ``copy=False`` no serán tomados
 en cuenta.
 
-**Transacciones y SQL de bajo nivel**
+
+Transacciones y SQL de bajo nivel
+---------------------------------
 
 Las operaciones de escritura en la base de datos son ejecutadas en el
 contexto de una transacción de base de datos. Usualmente no tenemos que
@@ -603,7 +616,8 @@ memoria (cache) debe ser limpiada después de su uso, a través de
     consecuencia la generación de inconsistencias en los datos. Debe usarse
     solo cuando tenga la seguridad de lo que esta haciendo.
 
-**Trabajar con hora y fecha**
+Trabajar con hora y fecha
+-------------------------
 
 Por razones históricas, los valores de fecha, y de fecha y hora se
 manejan como cadenas en vez de sus tipos correspondientes en Python.
@@ -659,7 +673,8 @@ Para facilitar la conversión entre formatos, tanto el objeto
 -  ``to_string(value)``: convierte un objeto fecha o de fecha y hora en
    una cadena en el formato esperado por el servidor.
 
-**Trabajar con campos de relación**
+Trabajar con campos de relación
+--------------------------------
 
 Mientras se usa el patrón de registro activo, se pueden asignar
 conjuntos de registros a los campos relacionales.
@@ -679,7 +694,8 @@ ID correspondiente o la lista de Ids.
 Por ejemplo, en ves de ``self.write({'user_id': self.env.user})``,
 deberíamos usar ``self.write({'user_id':    self.env.user.id})``.
 
-**Manipular los conjuntos de registros**
+Manipular los conjuntos de registros
+------------------------------------
 
 Seguramente queremos agregar, eliminar o reemplazar los elementos en
 estos campos relacionados, y esto lleva a la pregunta: ¿como se pueden
@@ -737,7 +753,8 @@ a las precedentes usando ``write()``:
 -  ``self.write([(3, self.task_ids[-1].id, False)])``: Desconecta (quita
    en enlace) el último elemento.
 
-**Otras operaciones de conjunto de registros**
+Otras operaciones de conjunto de registros
+------------------------------------------
 
 Los conjuntos de registro soportan operaciones adicionales.
 
@@ -773,7 +790,8 @@ A continuación se muestran algunos ejemplos del uso de estas funciones:
     >>> rs2.sorted(key=lambda r: r.id, reverse=True)
     res.partner(18, 7, 6)  
 
-**El entorno de ejecución**
+El entorno de ejecución
+-----------------------
 
 El entorno provee información contextual usada por el servidor. Cada
 conjunto de registro carga su entorno de ejecución en ``self.env`` con
@@ -893,7 +911,8 @@ representar la interfaz y ejecutar la interacción básica:
 
        rset.fields_view_get(view_type='tree')
 
-**Sobre escribir los métodos predeterminados**
+Sobre escribir los métodos predeterminados
+------------------------------------------
 
 Hemos aprendido sobre los métodos estándares que provee la API. Pero lo
 que podemos hacer con ellos no termina allí! También podemos ampliarlos
@@ -959,7 +978,8 @@ disponibles, y deben darse le prioridad:
    calculados pero se espera que arrojen errores cuando las condiciones
    no son cumplidas en vez de valores calculados.
 
-**Decoradores de métodos del Modelo**
+Decoradores de métodos del Modelo
+---------------------------------
 
 Durante nuestra jornada, los métodos que hemos encontrado usan los
 decoradores de la API como ``@api.one``. Estos son importantes para que
@@ -1019,7 +1039,8 @@ el siguiente mensaje:
         }
     } 
 
-**Depuración**
+Depuración
+----------
 
 Sabemos que una buena parte del trabajo de desarrollo es la depuración del código. Para hacer esto frecuentemente hacemos uso del editor de código que puede fijar pontos de quiebre y ejecutar nuestro programa paso a paso. Hacer esto con Odoo es posible pero tiene sus dificultades.
 
