@@ -47,7 +47,7 @@ momentos lleguen.
 Usamos git para obtener el código desde un repositorio, como hicimos
 para instalar nuestro entorno de desarrollo. Por ejemplo:
 
-::
+.. code-block:: console
 
     $ git clone https://github.com/odoo/odoo.git -b 8.0 --depth=1  
 
@@ -72,7 +72,7 @@ entorno de pruebas. Fue clonado desde GitHub, por lo tanto un
 el mismo es un repositorio, y podemos clonarlo desde nuestro entorno de
 producción, como se muestra en el siguiente ejemplo:
 
-::
+.. code-block:: console
 
     $ mkdir ~/odoo-prd && cd ~/odoo-prd 
     $ git clone ~/odoo-dev/odoo ~/odoo-prd/odoo/  
@@ -107,7 +107,7 @@ Podemos usar este archivo como punto de partida para nuestra
 configuración del servidor, la cual será almacenada en ``/etc/odoo``,
 como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo mkdir /etc/odoo
     $ sudo chown $(whoami) /etc/odoo 
@@ -179,7 +179,7 @@ Podemos verificar el efecto de las configuraciones ejecutando el
 servidor con la opción ``-c`` o ``--config`` como se muestra a
 continuación:
 
-::
+.. code-block:: console
 
     $ ./odoo.py -c /etc/odoo/openerp-server.conf 
 
@@ -193,7 +193,7 @@ El código fuente de Odoo incluye un script de inicio, usado para las
 distribuciones Debian. Podemos usarlo como nuestro script de inicio con
 algunas modificaciones menores, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo cp ~/odoo-prd/odoo/debian/init /etc/init.d/odoo 
     $ sudo chmo +x /etc/init.d/odoo  
@@ -223,21 +223,21 @@ usado, y LOGFILE es la ubicación del archivo de registro.
 Los ejecutables en DEAMON pueden ser un enlace simbólico a nuestra
 ubicación actual de Odoo, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo ln -s ~/odoo-prd/odoo/odoo.py /usr/bin/openerp-server 
     $ sudo chown $(whoami) /usr/bin/openerp-server  
 
 Luego debemos crear el directorio LOGFILE como sigue:
 
-::
+.. code-block:: console
 
     $ sudo mkdir /var/log/odoo
     $ sudo chown $(whoami) /etc/odoo  
 
 Ahora deberíamos poder iniciar y parar el servicio de Odoo:
 
-::
+.. code-block:: console
 
     $ sudo /etc/init.d/odoo start 
     Starting odoo: ok  
@@ -245,26 +245,28 @@ Ahora deberíamos poder iniciar y parar el servicio de Odoo:
 Deberíamos ser capaces de obtener una respuesta del servidor sin ningún
 error en la archivo de registro, como se muestra a continuación:
 
-::
+.. code-block:: console
 
-    $ curl http://localhost:8069 <html><head><script>window.location    = '/web' + location.hash;</script> </head></html> 
-    $ less /var/log/odoo/odoo-server.log     # show the log file  
+    $ curl http://localhost:8069
+    <html><head><script>window.location = '/web' + location.hash;</script> </head></html> 
+    $ less /var/log/odoo/odoo-server.log # show the log file  
 
 La parada del servicio se hace de forma similar:
 
-::
+.. code-block:: console
 
-    $ sudo /etc/init.d/odoo stop 
+    $ sudo /etc/init.d/odoo stop
     Stopping odoo: ok  
 
-*Tip* *Ubuntu proporciona el comando más fácil de recordar para
-gestionar los servicios, si lo prefiere puede usar
-``sudo service odoo start`` y ``sudo service odoo stop``. *
+.. tip::
+    Ubuntu proporciona el comando más fácil de recordar para
+    gestionar los servicios, si lo prefiere puede usar
+    ``sudo service odoo start`` y ``sudo service odoo stop``.
 
 Ahora solo necesitamos que el servicio se ejecute automáticamente cuando
 se inicia el sistema:
 
-::
+.. code-block:: console
 
     $ sudo update-rc.d odoo defaults  
 
@@ -308,7 +310,7 @@ HTTP predeterminados, así que debemos asegurarnos que no estén siendo
 usados por otro servicio. Ejecutar el siguiente comando debe arrojar un
 error, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ curl http://localhost 
     curl:   (7) Failed to connect to localhost port 80  
@@ -317,13 +319,13 @@ De lo contrario, deberá deshabilitar o eliminar ese servicio para
 permitir que nginx use esos puertos. Por ejemplo, para parar un servidor
 Apache existente, deberá hacer lo siguiente:
 
-::
+.. code-block:: console
 
     $ sudo /etc/init.d/apache2 stop  
 
 Ahora podemos instalar nginx, lo cual es realizado de la forma esperada:
 
-::
+.. code-block:: console
 
     $ sudo apt-get install nginx  
 
@@ -337,7 +339,7 @@ activan agregando un enlace simbólico en ``/etc/nginx/enabled-sites/``.
 Deberíamos deshabilitar la configuración predeterminada que provee la
 instalación de nginx, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo rm /etc/nginx/sites-enabled/default 
     $ sudo touch /etc/nginx/sites-available/odoo 
@@ -346,7 +348,7 @@ instalación de nginx, como se muestra a continuación:
 Usando un editor, como nano o vi, editamos nuestros archivo de
 configuración nginx como sigue:
 
-::
+.. code-block:: console
 
     $ sudo nano /etc/nginx/sites-available/odoo 
 
@@ -368,7 +370,7 @@ Odoo, el cual escucha en el puerto 8069, como se muestra a continuación:
 
 Para probar que la configuración es correcta, use lo siguiente:
 
-::
+.. code-block:: console
 
     $ sudo nginx -t  
 
@@ -380,16 +382,17 @@ las instrucciones dadas anteriormente para asegurarse que este no sea el
 caso, luego reinicio nginx. Luego de esto, podremos hacer que nginx
 cargue la nueva configuración:
 
-::
+.. code-block:: console
 
     $ sudo /etc/init.d/nginx reload  
 
 Ahora podemos verificar que nginx este redirigiendo el tráfico al
 servidor de Odoo, como se muestra a continuación:
 
-::
+.. code-block:: console
 
-    $ curl http://localhost <html><head><script>window.location = '/web' + location.hash;</script> </head></html>  
+    $ curl http://localhost
+    <html><head><script>window.location = '/web' + location.hash;</script> </head></html>  
 
 Reforzar el HTTPS
 =================
@@ -397,7 +400,7 @@ Reforzar el HTTPS
 Ahora, deberíamos instalar un certificado para poder usar SSL. Para
 crear un certificado auto-firmado, siga los pasos a continuación:
 
-::
+.. code-block:: console
 
     $ sudo mkdir /etc/nginx/ssl && cd /etc/nginx/ssl 
     $ sudo openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem – days 365 -nodes 
@@ -410,12 +413,13 @@ openssl, se solicitara más información, y se generaran un certificado y
 archivos llave. Finalmente, estos archivos serán propiedad del usuario
 www-data, usado para ejecutar el servidor web.
 
-*Nota* *Usar un certificado auto-firmado puede plantear algunos riesgos
-de seguridad, como ataques "man-in-the-middle", y pueden no ser
-permitidos por algunos navegadores. Para una solución más robusta, debe
-usar un certificado firmado por una autoridad de certificación
-reconocida. Esto es particularmente importante si se esta ejecutando un
-sitio web comercial o de e-commerce. *
+.. note::
+    Usar un certificado auto-firmado puede plantear algunos riesgos
+    de seguridad, como ataques "man-in-the-middle", y pueden no ser
+    permitidos por algunos navegadores. Para una solución más robusta, debe
+    usar un certificado firmado por una autoridad de certificación
+    reconocida. Esto es particularmente importante si se esta ejecutando un
+    sitio web comercial o de e-commerce.
 
 Ahora que tenemos un certificado SSL, podemos configurar nginx para
 usarlo.
@@ -471,7 +475,7 @@ define que todas las solicitudes sean pasadas al upstream
 Recargue la configuración, y deberíamos poder tener nuestro servicio
 Odoo trabajando a través de HTTPS, como se muestra a continuación:
 
-::
+.. code-block:: console
 
     $ sudo nginx -t 
     nginx: the configuration file /etc/nginx/nginx.conf syntax is ok 
@@ -573,7 +577,7 @@ copia de la base de datos de producción y probar la actualización en
 ella. Si ``v8dev`` es nuestra base de datos de producción, esto podría
 ser realizado con los siguientes comandos:
 
-::
+.. code-block:: console
 
     $ dropdb v8test ; createdb v8test 
     $ pg_dump v8dev | psqlpsql -d v8test 
@@ -590,7 +594,7 @@ Luego de esto, podemos hacer un "pull" de las nuevas versiones al
 repositorio de producción usando Git y completando la actualización,
 como se muestra aquí:
 
-::
+.. code-block:: console
 
     $ cd ~/odoo-prd/odoo/
     $ git pull 
