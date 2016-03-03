@@ -212,15 +212,15 @@ siguiente estructura básica:
 
 .. code-block:: XML
 
-    <kanban/>
-        <!-- Fields to use in expressions... --/>
-        <field name="a_field" />
-        <templates/>
-            <t t-name="kanban-box">
-                   <!-- HTML Qweb template ... --/>
-            </t/>
-        </templates/>
-    </kanban/>
+    <kanban>
+      <!-- Fields to use in expressions... -->
+      <field name="a_field" />
+      <templates>
+        <t t-name="kanban-box">
+          <!-- HTML Qweb template ... -->
+        </t>
+      </templates>
+    </kanban>
 
 El elemento contiene las plantillas para los fragmentos HTML a usar —uno
 o más. La plantilla principal a ser usada debe ser nombrada kanban-box.
@@ -239,7 +239,9 @@ le permite tener un valor agregado, mostrado en en el área superior de
 las columnas kanban. Esto se logra mediante la adición de un atributo
 con la agregación a usar, por ejemplo:
 
-``<field name="effort_estimated" sum="Total Effort" />``
+.. code-block:: XML
+
+    <field name="effort_estimated" sum="Total Effort" />
 
 Aquí, la suma para el campo de estimación de esfuerzo es presentada en
 el área superior de las columnas kanban con la etiqueta Total Effort.
@@ -266,19 +268,19 @@ Para las plantilas QWeb de las viñetas kanban, el esqueleto se ve así:
 .. code-block:: XML
 
     <t t-name="kanban-box"/>
-        <div class="oe_kanban_vignette"/>
-            <!-- Left side image:--/>
-            <img class="oe_kanban_image" name="..." />
-                <div class="oe_kanban_details"/>
-                    <!-- Title and data --/>
+        <div class="oe_kanban_vignette">
+            <!-- Left side image: -->
+            <img class="oe_kanban_image" name="..." >
+                <div class="oe_kanban_details">
+                    <!-- Title and data -->
                     <h4>Title</h4>
                     <br>Other data <br/>
                     <ul>
-                         <li>More data</li/>
-                    </ul/>
-               </div/>
-        </div/>
-    </t/>
+                         <li>More data</li>
+                    </ul>
+               </div>
+        </div>
+    </t>
 
 Puedes ver las dos clases CSS principales provistas para los kanban de
 estilo viñeta: oe\_kanban\_vignette para el contenedor superior y
@@ -289,27 +291,30 @@ sigue:
 
 .. code-block:: XML
 
-    <kanban/>
-        <templates/>
-            <t t-name="kanban-box"/>
-               <div class="oe_kanban_vignette"/>
-                  <img t-att-src="kanban_image('res.partner', 'image_medium', record.id.value)" class="oe_kanban_image"/>
-                    <div class="oe_kanban_details"/>
-                        <!-- Title and Data content --/>
-                        <h4><a type="open"/>
-                            <field name="name"/> </a></h4/>
+    <kanban>
+        <templates>
+            <t t-name="kanban-box">
+               <div class="oe_kanban_vignette">
+                  <img t-att-src="kanban_image('res.partner', 
+                                               'image_medium',
+                                               record.id.value)"
+                       class="oe_kanban_image"/>
+                    <div class="oe_kanban_details">
+                        <!-- Title and Data content -->
+                        <h4><a type="open">
+                            <field name="name"/> </a></h4>
                             <field name="tags" />
-                               <ul/>
-                                  <li><field name="user_id" /></li/>
-                                   <li><field name="date_deadline"/></li/>
-                                </ul/>
+                              <ul>
+                                <li><field name="user_id" /></li>
+                                <li><field name="date_deadline"/></li>
+                              </ul>
                             <field name="kanban_state" widget="kanban_state_selection"/>
                             <field name="priority" widget="priority"/>
-                    </div/>
-                </div/>
-            </t/>
-        </templates/>
-    </kanban/>
+                    </div>
+                </div>
+            </t>
+        </templates>
+    </kanban>
 
 Podemos ver los elementos discutidos hasta ahora, y también algunos
 nuevos. En la etiqueta , tenemos el atributo QWeb especial t-att-src.
@@ -386,7 +391,7 @@ la siguiente:
                     </div>
             </div>
         </div>
-    </t/>
+    </t>
 
 Hasta ahora hemos visto vistas kanban estáticas, usando una combinación
 de HTML y etiquetas especiales (field, button, a). Pero podemos tener
@@ -435,8 +440,8 @@ la Tarea, solo si este contiene un valor, después del campo
 .. code-block:: XML
 
     <t t-if="record.effort_estimate.raw_value > 0">
-        <li>Estimate <field  name="effort_estimate"/></li>
-    </t/>
+        <li>Estimate <field name="effort_estimate"/></li>
+    </t>
 
 El contexto de evaluación JavaScript tiene un objeto de registro que
 representa el registro que está siendo renderizado, con las campos
@@ -515,7 +520,7 @@ rendering just the Partner IDs of the task, as follows:
 
     <t t-foreach="record.message_follower_ids.raw_value" t-as="rec"/>
       <t t-esc="rec" />;
-    </t/>
+    </t>
 
 The t-foreach directive accepts a JavaScript expression evaluating to a
 collection to iterate. In most cases, this will be just the name of a
@@ -547,7 +552,7 @@ With this, we can rewrite the followers loop as follows:
                                  'image_small', rec)"
                 class="oe_kanban_image oe_kanban_avatar_smallbox"/>
       </t>
-    </div/>
+    </div>
 
 We used it for the src attribute, but any attribute can be dynamically
 generated with a ``t-  att-`` prefix.
@@ -578,7 +583,7 @@ another template to our XML file, inside the element, after the
                 class="oe_kanban_image oe_kanban_avatar_smallbox"/>
         </t>
       </div>
-    </t/>
+    </t>
 
 Calling it from the kanban-box main template is quite straightforwardfor
 eacht exist in the caller3s value when performing the sub-template call
@@ -588,7 +593,7 @@ as follows:
 
     <t t-call="follower_avatars">
        <t t-set="arg_max" t-value="3" />
-    </t/>
+    </t>
 
 The entire content inside the t-call element is also available to the
 sub-template through the magic variable 0. Instead of the argument
@@ -622,7 +627,7 @@ button is possible. There is also available a widget to set the card
     <li>
       <ul class="oe_kanban_colorpicker"
           data-field="color"/>
-          </li/>    </ul> </div/>
+          </li/>    </ul> </div>
 
 It is basically an HTML list of elements. The Edit and Delete options
 use QWeb to make them visible only when their actions are enabled on the
