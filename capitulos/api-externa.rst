@@ -212,7 +212,8 @@ adding the class constructor, as follows:
 
             common = xmlrpclib.ServerProxy('%s/xmlrpc/2/common' % srv)
             self.api = xmlrpclib.ServerProxy('%s/xmlrpc/2/object' % srv)
-            self.uid = common.authenticate(db, user, pwd, {})                                 self.pwd = pwd
+            self.uid = common.authenticate(db, user, pwd, {})
+            self.pwd = pwd
             self.db = db
             self.model = 'todo.task' 
 
@@ -369,7 +370,7 @@ the PyPi index and can be installed with the following:
 
 .. code-block:: console
 
-    $   pip install -U  erppeek  
+    $ pip install -U erppeek
 
 On a Unix system, if you are installing it system wide, you might need
 to prepend sudo to the command.
@@ -453,7 +454,8 @@ Let’s see a sample session as follows:
 
     Usage (some commands): models(name)
 
-    # List models matching pattern model(name)                                                                                 #   Return a Model instance (...)
+    # List models matching pattern model(name)
+    # Return a Model instance (...)
     Password for 'admin':
     Logged in as 'admin' v8dev
     >>> model('res.users').count()
