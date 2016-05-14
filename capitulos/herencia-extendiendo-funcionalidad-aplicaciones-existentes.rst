@@ -374,7 +374,7 @@ de tareas por hacer:
                 <field name="date_deadline" />
             </field>
             <field name="name" position="attributes">
-                <attribute name="string">I have to…<attribute/>
+                <attribute name="string">I have to…</attribute>
             </field>
         </field>
     </record>
