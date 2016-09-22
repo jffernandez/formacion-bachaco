@@ -770,9 +770,8 @@ Debemos editar el modelo TodoTask en el archivo
         stage_fold = fields.Boolean('Stage Folded?', compute='_compute_stage_fold')
         @api.one 
         @api.depends('stage_id.fold') 
-
-    def _compute_stage_fold(self):
-        self.stage_fold = self.stage_id.fold 
+        def _compute_stage_fold(self):
+            self.stage_fold = self.stage_id.fold 
 
 El código anterior agrega un campo nuevo ``stage_fold`` y el método
 ``_compute_stage_fold`` que sera usado para calcular el campo. El nombre
@@ -820,12 +819,11 @@ esto:
 .. code-block:: python
 
     # class TodoTask(models.Model):
-        stage_fold = fields.Boolean
-            string   = 'Stage Folded?',                                 
-            compute  ='_compute_stage_fold', 
-                      # store=False) # predeterminado            
-            search   ='_search_stage_fold',                                 
-            inverse  ='_write_stage_fold') 
+        stage_fold = fields.Boolean(string   = 'Stage Folded?',
+                                    compute  ='_compute_stage_fold', 
+                                    # store=False) # predeterminado            
+                                    search   ='_search_stage_fold',                                 
+                                    inverse  ='_write_stage_fold') 
 
 Las funciones soportadas son:
 
@@ -931,8 +929,8 @@ condición falla:
          @api.one 
          @api.constrains('name') 
          def _check_name_size(self):                                
-            if len(self.name) < 5:
-                 raise ValidationError('Must have 5 chars!') 
+             if len(self.name) < 5:
+                raise ValidationError('Must have 5 chars!') 
 
 El ejemplo anterior previene que el título de las tareas sean
 almacenados con menos de 5 caracteres.
