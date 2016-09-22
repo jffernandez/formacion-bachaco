@@ -90,7 +90,7 @@ existentes, podemos usar estos comandos en la terminal:
     $ cd todo_ui 
     $ touch __openerp__.py
     $ touch todo_model.py 
-    $ echo "from . Import todo_model" > __init__.py
+    $ echo "from . import todo_model" > __init__.py
 
 Luego, debemos editar el archivo manifiesto ``__openerp__.py`` con este
 contenido:
