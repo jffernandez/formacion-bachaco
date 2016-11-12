@@ -38,17 +38,17 @@ Windows, Macintosh o Linux.
 
 Odoo puede ser ejecutado en una gran variedad de sistemas operativos,
 entonces ¿por qué elegir Debian por encima de otros sistemas operativos?
-Debido a que Odoo es desarrollado principalmente para sistemas
-Debian/Ubuntu, el soporte para Odoo es mejor. Por lo tanto será más
-fácil encontrar ayuda y recursos adicionales si se trabaja con
+Debido a que Odoo está desarrollado principalmente para sistemas
+Debian/Ubuntu, y el soporte para Odoo es mejor. Por lo tanto, será más
+fácil encontrar ayuda y recursos adicionales, si se trabaja con
 Debian/Ubuntu.
 
 También son las plataformas más usadas por las personas que desarrollan
 aplicaciones, y donde se dan a conocer más implementaciones. Por esta
-razón, inevitablemente, se espera que las desarrolladoras y los
-desarrolladores de Odoo se sientan a gusto con esta plataforma. Incluso
-quienes tiene una historial de trabajo con Windows, es importante que
-tengan algún conocimiento sobre estas plataformas.
+razón, inevitablemente, se espera que los desarrolladores de Odoo se 
+sientan a gusto con esta plataforma. Incluso quienes tienen un historial 
+de trabajo con Windows, es importante que tengan algún conocimiento sobre 
+estas plataformas.
 
 En este capítulo, se aprenderá a configurar y trabajar con Odoo sobre un
 sistema Debian, usando únicamente la línea de comandos. Para quienes
@@ -89,7 +89,7 @@ ejecutar Odoo desde el código fuente de forma nativa.
 Sin embargo, esto puede ser un gran reto, por lo que nuestra
 recomendación es usar una máquina virtual ejecutando Debian o Ubuntu
 Server. Puede usar su software de virtualización preferido para hacer
-funcionar Debian en una máquina virtual. Si necesita alguna ayuda, aqui
+funcionar Debian en una máquina virtual. Si necesita alguna ayuda, aquí
 hay algunos consejos: en lo que se refiere a software de virtualización,
 tiene muchas opciones, como Microsoft Hyper-V (disponible para algunas
 versiones de Windows), Oracle VirtualBox, o VMWare Player (o VMWare
@@ -98,7 +98,7 @@ usar, y puede descargarse gratuitamente en
 https://my.vmware.com/web/vmware/downloads
 
 Con relación a la imagen Linux a usar, Ubuntu Server es más amigable
-para las usuarias y usuarios para instalar que Debian. Si esta
+para instalar que Debian. Si está
 comenzando con Linux, es recomendable que use una distribución lista
 para usar. TurnKey Linux provee imágenes facil de usar, preinstaladas en
 distintos formatos, incluyendo ISO. El formato ISO funcionara con
@@ -150,7 +150,7 @@ Los paquetes de Odoo listos para instalar pueden ser encontrados en
 `nightly.odoo.com <http://nightly.odoo.com>`__, disponibles para Windows
 (.exe), Debian (.deb), CentOS (.rpm), y código fuente (.tar.gz).
 
-Como desarrolladoras y desarrolladores, preferimos hacer la instalación
+Como desarrolladores, preferimos hacer la instalación
 directamente desde el repositorio GitHub. Esto nos permitirá tener más
 control sobre las sucesivas versiones y actualizaciones.
 
@@ -328,7 +328,7 @@ en http://www.postgresql.org/docs/
 
     *Eliminar una base de datos destruirá los datos de forma
     irrevocable. Tenga cuidado al ejecutar esta acción y mantenga
-    siempre respaldos de sus bases de datos.*
+    siempre backups de sus bases de datos.*
 
 Unas palabras sobre las versiones de Odoo
 -----------------------------------------
@@ -345,7 +345,7 @@ datos pueda ser usada con una versión más reciente del producto.
 
 Lo mismo pasa con los módulos: como regla general un módulo desarrollado
 para una versión más reciente de Odoo no funcionará con otras versiones.
-Cuando descargue módulos desde la Web desarrollados por la comunidad,
+Cuando descargue módulos desde la Web, desarrollados por la comunidad,
 asegúrese que estén dirigidos a la versión de Odoo que esté usando.
 
 Por otro lado, los lanzamientos principales (7.0, 8.0) reciben
@@ -354,10 +354,10 @@ de fallos. Tiene la garantía de ser "estables para la API", lo que
 significa que las estructuras del modelo de datos y los identificadores
 de vista de los elementos se mantendrán estables. Esto es importante
 porque significa que no habrá riesgo de estropear los módulos
-personalizados por causa de cambios incompatibles en los módulos base.
+personalizados a causa de cambios incompatibles en los módulos base.
 
 Sea consciente que la versión en la rama master se convertirá en la
-próxima versión principal estable, pero hasta entonces no será "estable
+próxima versión principal estable, pero hasta entonces, no será "estable
 para la API" y no debe usarla para construir módulos personalizados.
 Hacer esto es como moverse en arena movediza: no hay formar de asegurar
 cuando algún cambio introducido hará que su módulo falle.
