@@ -131,14 +131,14 @@ Agreguemos el siguiente código al archivo ``todo_ui/todo_model.py``:
 
     class Tag(models.Model):
         _name = 'todo.task.tag'
-        name = fields.Char('Name', 40, translate=True) 
+        name = fields.Char('Name', size=40, translate=True) 
 
     class Stage(models.Model):
         _name = 'todo.task.stage'
         _order = 'sequence,name'
         _rec_name = 'name'  # predeterminado
         _table = 'todo_task_stage' # predeterminado
-        name = fields.Char('Name', 40, translate=True)
+        name = fields.Char('Name', size=40, translate=True)
         sequence = fields.Integer('Sequence') 
 
 Aquí, creamos los dos Modelos nuevos a los cuales haremos referencia en
@@ -191,7 +191,7 @@ denominado como piscina - pool - en las versiones anteriores. Es un
 diccionario que mantiene las referencias de todas las clases de modelos
 disponibles en la instancia, a las cuales se les puede hacer referencia
 por el nombre del modelo. Específicamente, el código en un método del
-modelo puede usar ``self.env['x]`` o ``self.env.get('x')`` para obtener
+modelo puede usar ``self.env['x']`` o ``self.env.get('x')`` para obtener
 la referencia a la clase que representa el modelo x.
 
 Puede observar que los nombres del modelo son importantes ya que son la
@@ -241,7 +241,7 @@ Abstractos.
 
 Los **modelos transitorios** están basados en la clase
 ``models.TransientModel`` y son usados para interacción tipo asistente
-con el usuario y la usuaria. Sus datos son aún almacenados en la base de
+con el usuario. Sus datos son aún almacenados en la base de
 datos, pero se espera que sea temporal. Un proceso de reciclaje limpia
 periódicamente los datos viejos de esas tablas.
 
@@ -363,7 +363,7 @@ de campo:
    representa los dígitos decimales.
 -  **Date y Datetime**, estos datos son almacenados en formato UTC. Se
    realizan conversiones automáticas, basadas en las preferencias del
-   usuario o la usuaria, disponibles a través del contexto de la sesión
+   usuario, disponibles a través del contexto de la sesión
    de usuario. Esto es discutido con mayor detalle en el Capítulo 6.
 -  **Boolean**, solo espera sea fijado el campo de título, incluso si es
    opcional.
@@ -391,7 +391,7 @@ usar, y los explicaremos aquí con más detalle:
    hacen que los campos puedan ser traducidos: puede tener varios
    valores para diferentes idiomas.
 -  ``help``, proporciona el texto de ayuda desplegable mostrado a los
-   usuarios y usuarias.
+   usuarios.
 -  ``readonly = True``, hace que el campo no pueda ser editado en la
    interfaz.
 -  ``required = True``, hace que el campo sea obligatorio.
@@ -710,11 +710,11 @@ que pueda hacer referencia a un User o un Partner:
 .. code-block:: python
 
     # class TodoTask(models.Model):
-        refers_to = fields.Reference([('res.user', 'User'),('res.partner', 'Partner')], 'Refers to') 
+        refers_to = fields.Reference([('res.users', 'User'),('res.partner', 'Partner')], 'Refers to') 
 
 Puede observar que la definición del campo es similar al campo
 Selection, pero aquí la lista de selección contiene los modelos que
-pueden ser usados. En la interfaz, el usuario o la usuaria seleccionará
+pueden ser usados. En la interfaz, el usuario seleccionará
 un modelo de la lista, y luego elegirá un registro de ese modelo.
 
 Esto puede ser llevado a otro nivel de flexibilidad: existe una tabla de
