@@ -34,7 +34,7 @@ Configurar un equipo como servidor Odoo
 
 Preferimos usar sistemas Debian/Ubuntu para el servidor Odoo, aunque
 puede trabajar desde el sistema operativo de su preferencia, sea
-Windows, Macintosh, o Linux.
+Windows, Macintosh o Linux.
 
 Odoo puede ser ejecutado en una gran variedad de sistemas operativos,
 entonces ¿por qué elegir Debian por encima de otros sistemas operativos?
@@ -73,7 +73,7 @@ Debian, por lo tanto son muy similares.
 
 .. note::
     Odoo asegura su funcionamiento con la versión estable de Debian o
-    Ubuntu. Al momento de elegir este libro, las versión estable para
+    Ubuntu. Al momento de escribir este libro, las versión estable para
     Debian es la versión 7 "Wheezy" y para Ubuntu la versión 14.04
     "Trusty Tahr". Ambas se distribuyen con Python 2.7, necesario para
     ejecutar Odoo.
@@ -90,7 +90,7 @@ Sin embargo, esto puede ser un gran reto, por lo que nuestra
 recomendación es usar una máquina virtual ejecutando Debian o Ubuntu
 Server. Puede usar su software de virtualización preferido para hacer
 funcionar Debian en una máquina virtual. Si necesita alguna ayuda, aqui
-hay algunos consejos: en lo que se refiere a software de vistualización,
+hay algunos consejos: en lo que se refiere a software de virtualización,
 tiene muchas opciones, como Microsoft Hyper-V (disponible para algunas
 versiones de Windows), Oracle VirtualBox, o VMWare Player (o VMWare
 Fusion para Macintosh). VMWare Player es probablemente el más fácil de
@@ -102,7 +102,7 @@ para las usuarias y usuarios para instalar que Debian. Si esta
 comenzando con Linux, es recomendable que use una distribución lista
 para usar. TurnKey Linux provee imágenes facil de usar, preinstaladas en
 distintos formatos, incluyendo ISO. El formato ISO funcionara con
-cualquier software de vistualización de su preferencia, o incluso en
+cualquier software de virtualización de su preferencia, o incluso en
 cualquier equipo actual. Una buena opción sería una imagen LAPP, que
 puede hallarse en http://www.turnkeylinux.org/lapp.
 
