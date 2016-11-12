@@ -34,7 +34,7 @@ configurado como una dependencia:
     { 'name': 'User interface improvements to the To-Do app',
       'description': 'User friendly features.',
       'author': 'Daniel Reis',
-      'depends': ['todo_user'],
+      'depends': ['todo_user', 'todo_app'],
       'data': ['todo_view.xml']
     } 
 
@@ -49,7 +49,7 @@ o en un botón para abrir un formulario, es la acción subyacente la que
 da instrucciones a la interfaz sobre lo que debe hacer.
 
 Comenzaremos por crear la acción de ventana que será usada en las
-opciones de manú, para abrir las vistas de las tareas por hacer y de los
+opciones de menú, para abrir las vistas de las tareas por hacer y de los
 estados. Cree el archivo de datos ``todo_view.xml`` con el siguiente
 código:
 
@@ -59,7 +59,7 @@ código:
         <openerp>
             <data>
                 <act_window id="action_todo_stage" name="To-Do Task Stages" res_model="todo.task.stage" view_mode="tree,form"/>
-                <act_window id="todo_app.action_todo_task" name="To-Do Tasks" res_model="todo.task" view_mode="tree,form,calendar,gantt,graph" target="current "context="{'default_user_id':    uid}" domain="[]" limit="80"/>
+                <act_window id="todo_app.action_todo_task" name="To-Do Tasks" res_model="todo.task" view_mode="tree,form,calendar,gantt,graph" target="current" context="{'default_user_id':    uid}" domain="[]" limit="80"/>
                 <act_window id="action_todo_task_stage" name="To-Do Task Stages" res_model="todo.task.stage" src_model="todo.task" multi="False"/>  
             </data> 
          </openerp> 
