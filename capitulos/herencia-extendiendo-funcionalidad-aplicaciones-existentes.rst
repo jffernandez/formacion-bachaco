@@ -23,17 +23,17 @@ confiriéndole facultades para aprovechar las aplicaciones base o
 comunitarias. Como ejemplo, aprenderá como agregar las características
 de mensajería y redes sociales de Odoo a sus propios módulos.
 
-Agregar la capacidad de compartir con otros a la aplicación To-Do
+Agregar  a la aplicación To-Do, la capacidad de compartir con otros usuarios
 -----------------------------------------------------------------
 
-Nuestra aplicación To-Do actualmente permite a los usuarios y las
-usuarias gestionar de forma privada sus tareas por hacer. ¿No sería
+Nuestra aplicación To-Do actualmente permite a los usuarios 
+gestionar de forma privada sus tareas por hacer. ¿No sería
 grandioso llevar nuestra aplicación a otro nivel agregando
 características colaborativas y de redes sociales? Seriamos capaces de
 compartir las tareas y discutirlas con otras personas.
 
 Haremos esto con un módulo nuevo para ampliar la funcionalidad de la
-aplicación To-Do creada anteriormente y agregar estas características
+aplicación To-Do creada anteriormente y agregaremos estas características
 nuevas. Esto es lo que esperamos lograr al final de este capítulo:
 
 .. figure:: images/122_1.jpg
@@ -92,14 +92,14 @@ Los modelos nuevos son definidos a través de las clases Python.
 Ampliarlos también es hecho a través de las clases Python, pero usando
 un mecanismo específico de Odoo.
 
-Para aplicar un modelo usamos una clase Python con un atributo
+Para ampliar un modelo usamos una clase Python con un atributo
 ``__inherit``. Este identifica el modelo que será ampliado. La clase
 nueva hereda todas las características del modelo padre, y solo
 necesitamos declarar las modificaciones que queremos introducir.
 
 De hecho, los modelos de Odoo existen fuera de nuestro módulo
 particular, en un registro central. Podemos referirnos a este registro
-como la piscina, y puede ser accedido desde los métodos del modelo
+como la piscina (el pool), y puede ser accedido desde los métodos del modelo
 usando ``self.env[<model name>]``. Por ejemplo, para referirnos al
 modelo ``res.partner`` escribiremos ``self.env['res.partner']``.
 
@@ -254,7 +254,7 @@ asignadas a nuestro usuario:
 
 Estas son las técnicas básicas para sobrescribir y ampliar la lógica de
 negocio definida en las clases del modelo. Veremos ahora como extender
-las vistas de la interfaz con las usuarias y usuarios.
+las vistas de la interfaz con los usuarios.
 
 Ampliar las vistas
 ==================
@@ -316,7 +316,7 @@ Lo anterior también puede ser escrito como:
 
     <field name="is_done" position="before">
         <field name="date_deadline" />
-    </field>`
+    </field>
 
 Agregar campos nuevos, cerca de campos existentes es hecho
 frecuentemente, por lo tanto la etiqueta ``<field>`` es usada
@@ -341,7 +341,7 @@ elemento de coincidencia. Esto es hecho usando los elementos
 ``<attribute name="attr-name">`` con los valores del atributo nuevo.
 
 En el formulario de Tareas, tenemos el campo **Active**, pero tenerlo
-visible no es muy útil. Quizás podamos esconderlo de la usuaria y el
+visible no es muy útil. Quizás podamos esconderlo del
 usuario. Esto puede ser realizado configurando su atributo
 ``invisible``:
 
@@ -461,7 +461,7 @@ Copiar características usando herencia por prototipo
 El método que usamos anteriormente para ampliar el modelo solo usa el
 atributo ``_inherit``. Definimos una clase que hereda el modelo
 ``todo.task``, y le agregamos algunas características. La clase
-``_name`` no fue fijada explícitamente; implícitamente fue también
+``_name`` no fue fijada explícitamente; implícitamente fue asignada también al valor:
 ``todo.task``.
 
 Pero usando el atributo ``_name`` nos permitió crear una mezcla de
