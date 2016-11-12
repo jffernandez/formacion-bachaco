@@ -748,7 +748,8 @@ Dentro de la clase ``TodoTask`` agregue:
 
 .. code:: Python
 
-    @api.one def do_toggle_done(self):
+    @api.one 
+    def do_toggle_done(self):
         self.is_done = not self.is_done
         return True
 
@@ -770,7 +771,8 @@ haremos un poco de trampa, y también actuará sobre los demás botones:
 
 .. code:: Python
 
-    @api.multi def do_clear_done(self):
+    @api.multi 
+    def do_clear_done(self):
         done_recs = self.search([('is_done', '=', True)])
         done_recs.write({'active': False})
         return True
