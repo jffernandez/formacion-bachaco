@@ -20,7 +20,7 @@ finalmente borrar de la lista todas las tareas finalizadas.
 Aprenderá como Odoo sigue una arquitectura MVC, y recorrerá las
 siguientes capas durante la implementación de la aplicación: - El
 **modelo**, define la estructura de los datos. - La **vista**, describe
-la interfaz con el usuario o la usuaria. - El **controlador**, soporta
+la interfaz con el usuario. - El **controlador**, soporta
 la lógica de negocio de la aplicación.
 
 La capa modelo es definida por objetos Python cuyos datos son
