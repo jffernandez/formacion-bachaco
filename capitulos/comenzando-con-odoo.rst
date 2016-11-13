@@ -388,7 +388,7 @@ dentro de ese archivo:
     $ ~/odoo-dev/odoo/odoo.py --save --stop-after-init # guarda la configuración en archivo
 
 Aquí también se usa la opción ``--stop-after-init``, para que el
-servidor se detenga al finalizar las acciones. Ésta opción es usada
+servidor se detenga al finalizar las acciones. Esta opción es usada
 frecuentemente para ejecutar pruebas y solicitar la ejecución de
 actualización de un módulo para verificar que se instala correctamente.
 
