@@ -389,8 +389,8 @@ dentro de ese archivo:
 
 Aquí también se usa la opción ``--stop-after-init``, para que el
 servidor se detenga al finalizar las acciones. Esta opción es usada
-frecuentemente para ejecutar pruebas y solicitar la ejecución de
-actualización de un módulo para verificar que se instala correctamente.
+frecuentemente para ejecutar pruebas y verificar en la
+actualización de un módulo que se instala correctamente.
 
 Ahora se puede inspeccionar lo que se guardó en este archivo de
 configuración:
@@ -407,7 +407,7 @@ línea de comandos.
 También es posible seleccionar un archivo específico de configuración,
 usando la opción ``--conf=<filepath>``. Los archivos de configuración no
 necesitan tener todas las opciones de configuración que ha visto hasta
-ahora. Solo es necesario que estén aquellas opciones que cambian los
+ahora. Sólo es necesario que estén aquellas opciones que cambian los
 valores predeterminados.
 
 Cambiar el puerto de escucha
@@ -469,7 +469,7 @@ local o en un servidor remoto. Pero posiblemente prefiera hacer el
 trabajo de desarrollo en su estación de trabajo personal, usando su
 editor de texto o IDE favorito.
 
-Éste puede ser el caso para las personas que desarrollan en estaciones
+Este puede ser el caso para las personas que desarrollan en estaciones
 de trabajo con Windows. Pero puede también ser el caso para las personas
 que usan Linux y necesitan trabajar en un servidor Odoo desde una red
 local.
